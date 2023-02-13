@@ -1,0 +1,43 @@
+
+<html>
+    <title>Data</title>
+    <body>
+        <form action="/updatecategory" method="post">
+            <label>Name:</label><input type="text" name="name" value="{% if category.name %}{{category.name}}{% endif %}" />
+            <input type="hidden" name="id" value="{% if category.id %}{{category.id}}{% endif %}" />
+            <button type="submit" name="createcategory">Create Category</button>
+            {%csrf_token %}
+        </form>
+        <form action="/updatesubcategory" method="post">
+            <label>Catid:</label><input type="text" name="catid" value="{% if subcategory.catid %}{{subcategory.catid}}{% endif %}" />
+            <label>Name:</label><input type="text" name="name" value="{% if subcategory.name %}{{subcategory.name}}{% endif %}" />
+            <input type="hidden" name="id" value="{% if subcategory.id %}{{subcategory.id}}{% endif %}" />
+            <button type="submit" name="readnews">Create Subcategory</button>
+            {%csrf_token %}
+        </form>
+        <form action="/updatearticle" method="post">
+            <label>Sucatid:</label><input type="text" name="subcatid" value="{% if article.subcatid %}{{article.subcatid}}{% endif %}" />
+            <label>Title:</label><textarea  name="title">{% if article.content %}{{article.content}}{% endif %}</textarea>
+            <label>Content:</label><input type="text" name="content" value="{% if article.content %}{{article.content}}{% endif %}" />
+            <label>Createdate:</label><input type="text" name="createdate" value="{% if article.createdate %}{{article.createdate}}{% endif %}" />
+            <label>Status:</label><input type="text" name="status" value="{% if article.status %}{{article.status}}{% endif %}" />
+            <label>Status:</label><select name="status">
+                <option value="0">Not approved</option>
+                <option value="1">Approved</option>
+            </select>
+            <input type="hidden" name="id" value="{% if article.id %}{{article.id}}{% endif %}" />
+            <button type="submit" name="createarticle">Create Article</button>
+            {%csrf_token %}
+        </form>
+        <form action="/updateuser" method="post">
+            <label>Username:</label><input type="text" name="username" value="{% if user.username %}{{user.username}}{% endif %}" />
+            <label>Password:</label><textarea  name="password">{% if user.location %}{{user.location}}{% endif %}</textarea>
+            <label>Location:</label><input type="text" name="location" value="{% if user.location %}{{user.location}}{% endif %}" />
+            <label>Title:</label><input type="text" name="title" value="{% if user.title %}{{user.title}}{% endif %}" />
+            <label>Createdate:</label><input type="text" name="createdate" value="{% if user.createdate %}{{user.createdate}}{% endif %}" />
+            <input type="hidden" name="id" value="{% if user.id %}{{user.id}}{% endif %}" />
+            <button type="submit" name="createuser">Create User</button>
+            {%csrf_token %}
+        </form>
+    </body>
+    </html>

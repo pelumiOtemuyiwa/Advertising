@@ -1,0 +1,59 @@
+
+<html>
+    <title>Data</title>
+    <body>
+        
+        <form action="createcategory" method="post">
+            <label>Name:</label><input type="text" name="name" />
+            <button type="submit" name="createcategory">Create Category</button>
+            {%csrf_token %}
+        </form>
+          
+        
+        <form action="createsubcategory" method="post">
+            <label>Catid:</label>
+            <select name="catid" type="text">
+                {% for category in categories %}
+                <option value="{{category.id}}">{{category.name}}</option>
+                {% endfor %}
+
+            </select>
+            <label>Name</Title>:</label><textarea  name="name"></textarea>
+            <button type="submit" name="createsubcategory">Create Subcategory</button>
+            {%csrf_token %}
+        </form>
+        
+<form action="createarticle" method="post">
+    <label>Subcatid:</label>
+    <select name="subcatid" type="text">
+        {% for subcategory in subcategories %}
+        <option value="{{subcategory.id}}">{{subcategory.name}}</option>
+        {% endfor %}
+
+    </select>
+    <label>Title</Title>:</label><textarea  name="title"></textarea>
+    <label>Content:</label><input type="text" name="content" />
+    <label>Createdate:</label><input type="date" name="createdate" />
+    <label>Status:</label><select name="status">
+        <option value="0">Not approved</option>
+        <option value="1">Approved</option>
+    </select>
+    <button type="submit" name="createsubcategory">Create Article</button>
+    {%csrf_token %}
+</form>
+
+<form action="createuser" method="post">
+    <label>Username:</label><input type="text" name="username" />
+    <label>Password:</label><textarea  name="password"></textarea>
+    <label>Location:</label><input type="text" name="location" />
+    <label>Title:</label><input type="text" name="title" />
+    <label>Createdate:</label><input type="text" name="createdate" />
+   
+    <button type="submit" name="createuser">Create User</button>
+    {%csrf_token %}
+</form>
+
+
+
+    </body>
+</html>

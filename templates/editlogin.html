@@ -1,0 +1,14 @@
+
+<html>
+    <title>Data</title>
+    <body>        
+        <form action="/updatelogin" method="post">
+            <label>Username:</label><input type="text" name="username" value="{% if login.username %}{{login.username}}{% endif %}" />
+            <label>Password:</label><input type="text" name="password" value="{% if login.password %}{{login.password}}{% endif %}" />
+             <input type="hidden" name="id" value="{% if login.id %}{{login.id}}{% endif %}" />
+            <button type="submit" name="readnews">Login Successful</button>
+            {%csrf_token %}
+        </form>
+        
+            </body>
+        </html>
